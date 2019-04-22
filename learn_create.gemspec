@@ -10,4 +10,5 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.homepage = 'https://github.com/learn-co-curriculum/learn_create'
   s.executables << 'learn_create'
+  spec.add_runtime_dependency 'faraday', '~> 0.15'
 end
