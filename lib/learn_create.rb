@@ -1,5 +1,6 @@
 require 'faraday'
 require 'uri'
+require 'open3'
 
 class LearnCreate
   def initialize
@@ -7,6 +8,7 @@ class LearnCreate
 
     # Checks to see if chosen name already exists as a repository
     @repo_name = ''
+    @ssh_configured = check_ssh_config
 
     loop do
       puts 'What is the name of the repository you would like to create?'
@@ -14,7 +16,7 @@ class LearnCreate
       url = 'https://api.github.com/repos/learn-co-curriculum/' + @repo_name
       encoded_url = URI.encode(url).slice(0, url.length)
 
-      # Will hit rate limint on github is used too much
+      # Will hit rate limit on github is used too much
       check_existing = Faraday.get URI.parse(encoded_url)
 
       break if check_existing.body.include? '"Not Found"'
@@ -160,7 +162,8 @@ jspm_packages
   end
 
   def git_set_remote
-    cmd = cd_into_and("git remote set-url origin https://github.com/learn-co-curriculum/#{@repo_name}")
+    remote = @ssh_configured ? "git@github.com:learn-co-curriculum/#{@repo_name}.git" : "https://github.com/learn-co-curriculum/#{@repo_name}"
+    cmd = cd_into_and("git remote set-url origin ")
     `#{cmd}`
   end
 
@@ -189,5 +192,10 @@ jspm_packages
     puts ''
     puts 'Pushing to remote'
     git_push
+  end
+
+  def check_ssh_config
+    result = Open3.capture2e('ssh -T git@github.com').first
+    result.include?("You've successfully authenticated")
   end
 end
