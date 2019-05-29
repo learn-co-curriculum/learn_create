@@ -7,7 +7,7 @@ This gem is designed to aid in the creation of learn lessons.
 Before using `learn_create`, you must install `hub`, GitHub's extended CLI API.
 
 ```sh
-    $ brew install hub
+brew install hub
 ```
 
 Once `hub` is installed, you'll need to get it configured before running
@@ -30,7 +30,7 @@ repository on learn-co-curriculum. In the shell:
 Install the `learn_create` gem:
 
 ```sh
-    $ gem install learn_create
+gem install learn_create
 ```
 
 ## Usage
