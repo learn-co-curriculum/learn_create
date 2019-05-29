@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'learn_create'
-  s.version = '0.0.19'
+  s.version = '0.0.20'
   s.date = '2018-11-20'
   s.authors = ['flatironschool']
   s.email = 'maxwell@flatironschool.com'
@@ -10,5 +10,5 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.homepage = 'https://github.com/learn-co-curriculum/learn_create'
   s.executables << 'learn_create'
-  spec.add_runtime_dependency 'faraday', '~> 0.15'
+  s.add_runtime_dependency 'faraday', '~> 0.15'
 end
