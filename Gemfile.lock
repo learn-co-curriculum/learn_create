@@ -1,19 +1,15 @@
-PATH
-  remote: .
-  specs:
-    learn_create (0.0.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
     awesome_print (1.8.0)
     faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
-    json (2.1.0)
+    json (2.3.0)
     multipart-post (2.0.0)
     odyssey (0.1.8)
       require_all
     require_all (2.0.0)
+    uri (0.10.0)
 
 PLATFORMS
   ruby
@@ -22,9 +18,9 @@ DEPENDENCIES
   awesome_print
   faraday
   json
-  learn_create!
   odyssey
   require_all
+  uri
 
 BUNDLED WITH
    1.16.6
