@@ -9,7 +9,7 @@ GEM
     odyssey (0.1.8)
       require_all
     require_all (2.0.0)
-    uri (0.10.0)
+    uri (0.10.0.1)
 
 PLATFORMS
   ruby
